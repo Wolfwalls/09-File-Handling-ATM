@@ -13,6 +13,7 @@ def withdraw(log):
             print("invalid amount")
         elif true_amount > 0:
             log["checkingBalance"] -= true_amount
+            log["transactions"].append(f"Withdrawal from Checkings in amount of ${true_amount}")
             print(log["checkingBalance"])
             save_file(log)
     elif option == "2":
@@ -23,6 +24,7 @@ def withdraw(log):
             print("invalid amount")
         elif true_amount > 0:
             log["savingsBalance"] -= true_amount
+            log["transactions"].append(f"Withdrawal from Savings in amount of ${true_amount}")
             print(log["savingsBalance"])
             save_file(log)
 
@@ -42,7 +44,7 @@ def check_balance(log):
     
 
 def view_transaction(log):
-    pass
+    print(log["transactions"])
 
 
 def deposit(log):
@@ -56,6 +58,7 @@ def deposit(log):
             print("invalid amount")
         elif true_amount > 0:
             log["checkingBalance"] += true_amount
+            log["transactions"].append(f"Deposited ${true_amount} into Checking")
             print(log["checkingBalance"])
             save_file(log)
     elif option == "2":
@@ -66,6 +69,7 @@ def deposit(log):
             print("invalid amount")
         elif true_amount > 0:
             log["savingsBalance"] += true_amount
+            log["transactions"].append(f"Deposited ${true_amount} into Savings")
             print(log["savingsBalance"])
             save_file(log)
 
@@ -82,6 +86,8 @@ def main_menu(log):
         withdraw(log)
     if choice == "3":
         check_balance(log)
+    if choice == "4":
+        view_transaction(log)
     if choice == "5":
         exit()
     

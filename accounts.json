@@ -3,11 +3,13 @@
     "lastName": "Doe",
     "accountNumber": "12345",
     "pin": "4321",
-    "checkingBalance": 785.05,
-    "savingsBalance": 666.0,
+    "checkingBalance": 762.05,
+    "savingsBalance": 686.5,
     "transactions": [
         "Deposit into Checking in amount of $50.00",
-        "Withdrawal from Savings in amount of $20.00"
+        "Withdrawal from Savings in amount of $20.00",
+        "Withdrawal from Savings in amount of $23.0",
+        "Deposited $20.5 into Savings"
     ],
     "notes": [
         {
