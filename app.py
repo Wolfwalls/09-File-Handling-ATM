@@ -13,6 +13,11 @@ def check_balance(log):
         go_back = input("Want to head back (y/n): ").lower()
         if go_back == "y":
             main_menu(log)
+    elif option == "2":
+            print( print(log["savingsBalance"]))
+            go_back = input("Want to head back (y/n): ").lower()
+            if go_back == "y":
+                main_menu(log)
     
 
 def view_transaction_menu():
