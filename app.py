@@ -2,12 +2,22 @@ import json
 import os
 
 
+def withdraw(log):
+    pass
+
+def check_balance():
+    pass
+
+def view_transaction_menu():
+    pass
+
+
 def deposit(log):
     print("Do you want to add to your savings or checkings \n1. Checking \n2. Saving")
-    option = input()
+    option = input("> ")
     if option == "1":
-        print("Enter an amout to deposit")
-        amount = input()
+        print("Enter an amount to deposit")
+        amount = input("> ")
         true_amount = float(amount)
         if true_amount <= 0:
             print("invalid amount")
@@ -16,8 +26,8 @@ def deposit(log):
             print(log["checkingBalance"])
             save_file(log)
     elif option == "2":
-        print("Enter an amout to deposit")
-        amount = input()
+        print("Enter an amount to deposit")
+        amount = input("> ")
         true_amount = float(amount)
         if true_amount <= 0:
             print("invalid amount")
@@ -48,8 +58,8 @@ def main():
         print("No accounts found.")
         exit()
 
-    while go == True:
 
+    while go == True:
         Acc_numb = input("Enter an account number: ").lower()
         if Acc_numb == "q":
             go = False
@@ -68,8 +78,6 @@ def main():
             print(f"Welcome {log["firstName"]} {log["lastName"]}")
             main_menu(log)
             break
-
-
 
 
 

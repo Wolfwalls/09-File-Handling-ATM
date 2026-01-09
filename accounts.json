@@ -1,26 +1,26 @@
 {
-  "firstName": "John",
-  "lastName": "Doe",
-  "accountNumber": "12345",
-  "pin": "4321",
-  "checkingBalance": 750.5,
-  "savingsBalance": 1300.0,
-  "transactions": [
-    "Deposit into Checking in amount of $50.00",
-    "Withdrawal from Savings in amount of $20.00"
-  ],
-  "notes": [
-    {
-      "date": "2025-10-13",
-      "note": "It was a good day"
-    },
-    {
-      "date": "2025-10-14",
-      "note": "It was an okay day"
-    },
-    {
-      "date": "2025-10-17",
-      "note": "It was a great day"
-    }
-  ]
+    "firstName": "John",
+    "lastName": "Doe",
+    "accountNumber": "12345",
+    "pin": "4321",
+    "checkingBalance": 785.05,
+    "savingsBalance": 1337.0,
+    "transactions": [
+        "Deposit into Checking in amount of $50.00",
+        "Withdrawal from Savings in amount of $20.00"
+    ],
+    "notes": [
+        {
+            "date": "2025-10-13",
+            "note": "It was a good day"
+        },
+        {
+            "date": "2025-10-14",
+            "note": "It was an okay day"
+        },
+        {
+            "date": "2025-10-17",
+            "note": "It was a great day"
+        }
+    ]
 }
