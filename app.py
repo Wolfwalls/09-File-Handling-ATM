@@ -2,7 +2,7 @@ import json
 import os
 
 
-def withdraw(log):
+def withdraw(log, account):
     print("Do you want to take from your savings or checkings \n1. Checking \n2. Saving")
     option = input("> ")
     if option == "1":
@@ -15,7 +15,7 @@ def withdraw(log):
             log["checkingBalance"] -= true_amount
             log["transactions"].append(f"Withdrawal from Checkings in amount of ${true_amount}")
             print(log["checkingBalance"])
-            save_file(log)
+            save_file(log, account)
     elif option == "2":
         print("Enter an amount to withdraw")
         amount = input("> ")
@@ -26,7 +26,7 @@ def withdraw(log):
             log["savingsBalance"] -= true_amount
             log["transactions"].append(f"Withdrawal from Savings in amount of ${true_amount}")
             print(log["savingsBalance"])
-            save_file(log)
+            save_file(log, account)
     go_back = input("Want to head back (y/n): ").lower()
     if go_back == "y":
         main_menu(log)
@@ -36,7 +36,7 @@ def withdraw(log):
         print("I will take that as a no.")
         exit()
 
-def check_balance(log):
+def check_balance(log, account):
     print("Which balance would you like to see. \n1. Checkings \n2. Savings")
     option = input("-> ")
     if option == "1":
@@ -53,11 +53,11 @@ def check_balance(log):
         exit()
     
 
-def view_transaction(log):
+def view_transaction(log, account):
     print(log["transactions"])
 
 
-def deposit(log):
+def deposit(log, account):
     print("Do you want to add to your savings or checkings \n1. Checking \n2. Saving")
     option = input("> ")
     if option == "1":
@@ -70,7 +70,7 @@ def deposit(log):
             log["checkingBalance"] += true_amount
             log["transactions"].append(f"Deposited ${true_amount} into Checking")
             print(log["checkingBalance"])
-            save_file(log)
+            save_file(log, account)
     elif option == "2":
         print("Enter an amount to deposit")
         amount = input("> ")
@@ -81,7 +81,7 @@ def deposit(log):
             log["savingsBalance"] += true_amount
             log["transactions"].append(f"Deposited ${true_amount} into Savings")
             print(log["savingsBalance"])
-            save_file(log)
+            save_file(log, account)
     go_back = input("Want to head back (y/n): ").lower()
     if go_back == "y":
         main_menu(log)
@@ -95,19 +95,19 @@ def deposit(log):
 
 
 
-def main_menu(log):
+def main_menu(log, account):
     go = True
     while go == True:
         print("What would you like to do.\n1. Deposit\n2. Withdraw\n3. Check balance\n4. Veiw transactions\n5. Quit")
         choice = input("")
         if choice ==  "1":
-            deposit(log)
+            deposit(log, account)
         if choice == "2":
             withdraw(log)
         if choice == "3":
-            check_balance(log)
+            check_balance(log, account)
         if choice == "4":
-            view_transaction(log)
+            view_transaction(log, account)
         if choice == "5":
             leave = input("Are you sure(y/n)?").lower()
             if leave == "y":
@@ -115,7 +115,7 @@ def main_menu(log):
                 exit()
             elif leave == "n":
                 print("Get back here.")
-                main_menu(log)
+                main_menu(log, account)
             elif leave == "Invincible":
                 print("Mark, we could be bees.")
                 exit()
@@ -123,9 +123,9 @@ def main_menu(log):
                 print(". . . Are you serious?")
                 exit()
     
-def save_file(data, filename = "accounts.json"):
+def save_file(data, account, filename = "accounts.json"):
     with open(filename,"w") as file:
-        file.write(json.dumps(data, indent=4))
+        file.write(json.dumps(data, account, indent=4))
 
 
 
@@ -148,13 +148,19 @@ def main():
             log = json.load(file)
             #log["firstName"] = "Jason"
             #save_file(log)
-        if Acc_numb != log["accountNumber"]:
-            print("Your account number does not match.")
-        if Pin_numb != log["pin"]:
+        #if Acc_numb != log["accountNumber"]:
+            #print("Your account number does not match.")
+        account = None
+        for i in range(len(log)):
+            if log[i]==Acc_numb:
+                account=i
+        if account == None:
+            account = 0
+        if Pin_numb != log[account]["pin"]:
             print("Your pin number does not match.")
-        elif Acc_numb == log["accountNumber"] and Pin_numb == log["pin"]:
+        elif Pin_numb == log[account]["pin"]:
             print(f"Welcome {log["firstName"]} {log["lastName"]}")
-            main_menu(log)
+            main_menu(log, account)
             break
 
 
