@@ -96,30 +96,32 @@ def deposit(log):
 
 
 def main_menu(log):
-    print("What would you like to do.\n1. Deposit\n2. Withdraw\n3. Check balance\n4. Veiw transactions\n5. Quit")
-    choice = input("")
-    if choice ==  "1":
-        deposit(log)
-    if choice == "2":
-        withdraw(log)
-    if choice == "3":
-        check_balance(log)
-    if choice == "4":
-        view_transaction(log)
-    if choice == "5":
-        leave = input("Are you sure(y/n)?").lower()
-        if leave == "y":
-            print("Have a nice day.")
-            exit()
-        elif leave == "n":
-            print("Get back here.")
-            main_menu(log)
-        elif leave == "Invincible":
-            print("Mark, we could be bees.")
-            exit()
-        else:
-            print(". . . Are you serious?")
-            exit()
+    go = True
+    while go == True:
+        print("What would you like to do.\n1. Deposit\n2. Withdraw\n3. Check balance\n4. Veiw transactions\n5. Quit")
+        choice = input("")
+        if choice ==  "1":
+            deposit(log)
+        if choice == "2":
+            withdraw(log)
+        if choice == "3":
+            check_balance(log)
+        if choice == "4":
+            view_transaction(log)
+        if choice == "5":
+            leave = input("Are you sure(y/n)?").lower()
+            if leave == "y":
+                print("Have a nice day.")
+                exit()
+            elif leave == "n":
+                print("Get back here.")
+                main_menu(log)
+            elif leave == "Invincible":
+                print("Mark, we could be bees.")
+                exit()
+            else:
+                print(". . . Are you serious?")
+                exit()
     
 def save_file(data, filename = "accounts.json"):
     with open(filename,"w") as file:
@@ -136,6 +138,7 @@ def main():
 
     while go == True:
         Acc_numb = input("Enter an account number: ").lower()
+        
         if Acc_numb == "q":
             go = False
             break
