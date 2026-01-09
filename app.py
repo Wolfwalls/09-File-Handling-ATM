@@ -80,6 +80,8 @@ def main_menu(log):
         deposit(log)
     if choice == "2":
         withdraw(log)
+    if choice == "3":
+        check_balance(log)
     if choice == "5":
         exit()
     
