@@ -5,8 +5,15 @@ import os
 def withdraw(log):
     pass
 
-def check_balance():
-    pass
+def check_balance(log):
+    print("Which balance would you like to see. \n1. Checkings \n2. Savings")
+    option = input("-> ")
+    if option == "1":
+        print( print(log["checkingBalance"]))
+        go_back = input("Want to head back (y/n): ").lower()
+        if go_back == "y":
+            main_menu(log)
+    
 
 def view_transaction_menu():
     pass
@@ -36,7 +43,7 @@ def deposit(log):
             print(log["savingsBalance"])
             save_file(log)
 
-        
+
 
 
 
