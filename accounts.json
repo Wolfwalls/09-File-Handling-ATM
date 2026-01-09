@@ -1,28 +1,55 @@
-{
-    "firstName": "John",
-    "lastName": "Doe",
-    "accountNumber": "12345",
-    "pin": "4321",
-    "checkingBalance": 762.05,
-    "savingsBalance": 686.5,
+[
+  {
+    "firstName": "Guest",
+    "lastName": "666",
+    "accountNumber": "66666",
+    "pin": "6666",
+    "checkingBalance": 666.66,
+    "savingsBalance": 666.66,
     "transactions": [
-        "Deposit into Checking in amount of $50.00",
-        "Withdrawal from Savings in amount of $20.00",
-        "Withdrawal from Savings in amount of $23.0",
-        "Deposited $20.5 into Savings"
+      "Deposit into Checking in amount of $50.00",
+      "Withdrawal from Savings in amount of $20.00"
     ],
     "notes": [
-        {
-            "date": "2025-10-13",
-            "note": "It was a good day"
-        },
-        {
-            "date": "2025-10-14",
-            "note": "It was an okay day"
-        },
-        {
-            "date": "2025-10-17",
-            "note": "It was a great day"
-        }
+      {
+        "date": "2025-10-13",
+        "note": "It was a good day"
+      },
+      {
+        "date": "2025-10-14",
+        "note": "It was an okay day"
+      },
+      {
+        "date": "2025-10-17",
+        "note": "It was a great day"
+      }
     ]
-}
+  },
+
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "accountNumber": "10100",
+    "pin": "1111",
+    "checkingBalance": 1011.01,
+    "savingsBalance": 110.01,
+    "transactions": [
+      "Deposit into Checking in amount of $50.00",
+      "Withdrawal from Savings in amount of $20.00"
+    ],
+    "notes": [
+      {
+        "date": "2025-10-13",
+        "note": "It was a good day"
+      },
+      {
+        "date": "2025-10-14",
+        "note": "It was an okay day"
+      },
+      {
+        "date": "2025-10-17",
+        "note": "It was a great day"
+      }
+    ]
+  }
+]
