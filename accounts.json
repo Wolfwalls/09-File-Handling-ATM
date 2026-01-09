@@ -4,7 +4,7 @@
     "accountNumber": "12345",
     "pin": "4321",
     "checkingBalance": 785.05,
-    "savingsBalance": 1337.0,
+    "savingsBalance": 666.0,
     "transactions": [
         "Deposit into Checking in amount of $50.00",
         "Withdrawal from Savings in amount of $20.00"

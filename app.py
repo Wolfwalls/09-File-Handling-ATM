@@ -3,7 +3,28 @@ import os
 
 
 def withdraw(log):
-    pass
+    print("Do you want to take from your savings or checkings \n1. Checking \n2. Saving")
+    option = input("> ")
+    if option == "1":
+        print("Enter an amount to withdraw")
+        amount = input("> ")
+        true_amount = float(amount)
+        if true_amount <= 0:
+            print("invalid amount")
+        elif true_amount > 0:
+            log["checkingBalance"] -= true_amount
+            print(log["checkingBalance"])
+            save_file(log)
+    elif option == "2":
+        print("Enter an amount to withdraw")
+        amount = input("> ")
+        true_amount = float(amount)
+        if true_amount <= 0:
+            print("invalid amount")
+        elif true_amount > 0:
+            log["savingsBalance"] -= true_amount
+            print(log["savingsBalance"])
+            save_file(log)
 
 def check_balance(log):
     print("Which balance would you like to see. \n1. Checkings \n2. Savings")
@@ -20,7 +41,7 @@ def check_balance(log):
                 main_menu(log)
     
 
-def view_transaction_menu():
+def view_transaction(log):
     pass
 
 
@@ -53,10 +74,14 @@ def deposit(log):
 
 
 def main_menu(log):
-    print("What would you like to do.\n1. Deposit\n2. Withdraw\n3. Check balance\n4. Veiw transactions")
+    print("What would you like to do.\n1. Deposit\n2. Withdraw\n3. Check balance\n4. Veiw transactions\n5. Quit")
     choice = input("")
     if choice ==  "1":
         deposit(log)
+    if choice == "2":
+        withdraw(log)
+    if choice == "5":
+        exit()
     
 def save_file(data, filename = "accounts.json"):
     with open(filename,"w") as file:
