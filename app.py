@@ -2,7 +2,7 @@ import json
 import os
 
 
-def withdraw_menu():
+def withdraw(log):
     pass
 
 def check_balance():
@@ -14,10 +14,10 @@ def view_transaction_menu():
 
 def deposit(log):
     print("Do you want to add to your savings or checkings \n1. Checking \n2. Saving")
-    option = input()
+    option = input("> ")
     if option == "1":
-        print("Enter an amout to deposit")
-        amount = input()
+        print("Enter an amount to deposit")
+        amount = input("> ")
         true_amount = float(amount)
         if true_amount <= 0:
             print("invalid amount")
@@ -26,8 +26,8 @@ def deposit(log):
             print(log["checkingBalance"])
             save_file(log)
     elif option == "2":
-        print("Enter an amout to deposit")
-        amount = input()
+        print("Enter an amount to deposit")
+        amount = input("> ")
         true_amount = float(amount)
         if true_amount <= 0:
             print("invalid amount")
