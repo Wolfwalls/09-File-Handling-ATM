@@ -1,6 +1,18 @@
 import json
 import os
 
+def deposit_menu():
+    pass
+
+def withdraw_menu():
+    pass
+
+def check_balance():
+    pass
+
+def view_transaction_menu():
+    pass
+
 
 def main_menu(log):
     print("What would you like to do.\n1. Deposit\n2. Withdraw\n3. Check balance\n4. Veiw transactions")
@@ -19,7 +31,7 @@ def main():
 
     while True:
         try:
-            Acc_numb = input("Enter an account number: ").lower()
+            Acc_numb = int(input("Enter an account number: ")).lower()
             Pin_numb = input("Enter your 4-digit pin: ").lower()
             with open("accounts.json", "r")as file:
                 log = json.load(file)
@@ -37,7 +49,7 @@ def main():
 
         except:
             if Acc_numb == "q":
-                exit()
+                break
             elif  Acc_numb != int:
                 print("That's not an integer.")
 
