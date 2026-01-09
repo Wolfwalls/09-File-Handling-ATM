@@ -25,20 +25,30 @@ def withdraw(log):
             log["savingsBalance"] -= true_amount
             print(log["savingsBalance"])
             save_file(log)
+    go_back = input("Want to head back (y/n): ").lower()
+    if go_back == "y":
+        main_menu(log)
+    elif go_back == "n":
+        exit()
+    else:
+        print("I will take that as a no.")
+        exit()
 
 def check_balance(log):
     print("Which balance would you like to see. \n1. Checkings \n2. Savings")
     option = input("-> ")
     if option == "1":
-        print( print(log["checkingBalance"]))
-        go_back = input("Want to head back (y/n): ").lower()
-        if go_back == "y":
-            main_menu(log)
+        print(log["checkingBalance"])
     elif option == "2":
-            print( print(log["savingsBalance"]))
-            go_back = input("Want to head back (y/n): ").lower()
-            if go_back == "y":
-                main_menu(log)
+            print(log["savingsBalance"])
+    go_back = input("Want to head back (y/n): ").lower()
+    if go_back == "y":
+        main_menu(log)
+    elif go_back == "n":
+        exit()
+    else:
+        print("I will take that as a no.")
+        exit()
     
 
 def view_transaction(log):
@@ -68,6 +78,14 @@ def deposit(log):
             log["savingsBalance"] += true_amount
             print(log["savingsBalance"])
             save_file(log)
+    go_back = input("Want to head back (y/n): ").lower()
+    if go_back == "y":
+        main_menu(log)
+    elif go_back == "n":
+        exit()
+    else:
+        print("I will take that as a no.")
+        exit()
 
 
 
@@ -83,7 +101,19 @@ def main_menu(log):
     if choice == "3":
         check_balance(log)
     if choice == "5":
-        exit()
+        leave = input("Are you sure(y/n)?").lower()
+        if leave == "y":
+            print("Have a nice day.")
+            exit()
+        elif leave == "n":
+            print("Get back here.")
+            main_menu(log)
+        elif leave == "Invincible":
+            print("Mark, we could be bees.")
+            exit()
+        else:
+            print(". . . Are you serious?")
+            exit()
     
 def save_file(data, filename = "accounts.json"):
     with open(filename,"w") as file:
