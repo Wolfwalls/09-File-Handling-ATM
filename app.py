@@ -12,8 +12,8 @@ def withdraw(log, account):
         if true_amount <= 0:
             print("invalid amount")
         elif true_amount > 0:
-            log["checkingBalance"] -= true_amount
-            log["transactions"].append(f"Withdrawal from Checkings in amount of ${true_amount}")
+            log[account]["checkingBalance"] -= true_amount
+            log[account]["transactions"].append(f"Withdrawal from Checkings in amount of ${true_amount}")
             print(log["checkingBalance"])
             save_file(log, account)
     elif option == "2":
@@ -40,12 +40,12 @@ def check_balance(log, account):
     print("Which balance would you like to see. \n1. Checkings \n2. Savings")
     option = input("-> ")
     if option == "1":
-        print(log["checkingBalance"])
+        print(log[account]["checkingBalance"])
     elif option == "2":
-            print(log["savingsBalance"])
+            print(log[account]["savingsBalance"])
     go_back = input("Want to head back (y/n): ").lower()
     if go_back == "y":
-        main_menu(log)
+        main_menu(log, account)
     elif go_back == "n":
         exit()
     else:
@@ -54,7 +54,7 @@ def check_balance(log, account):
     
 
 def view_transaction(log, account):
-    print(log["transactions"])
+    print(log[account]["transactions"])
 
 
 def deposit(log, account):
@@ -67,9 +67,9 @@ def deposit(log, account):
         if true_amount <= 0:
             print("invalid amount")
         elif true_amount > 0:
-            log["checkingBalance"] += true_amount
-            log["transactions"].append(f"Deposited ${true_amount} into Checking")
-            print(log["checkingBalance"])
+            log[account]["checkingBalance"] += true_amount
+            log[account]["transactions"].append(f"Deposited ${true_amount} into Checking")
+            print(log[account]["checkingBalance"])
             save_file(log, account)
     elif option == "2":
         print("Enter an amount to deposit")
@@ -78,13 +78,13 @@ def deposit(log, account):
         if true_amount <= 0:
             print("invalid amount")
         elif true_amount > 0:
-            log["savingsBalance"] += true_amount
-            log["transactions"].append(f"Deposited ${true_amount} into Savings")
-            print(log["savingsBalance"])
+            log[account]["savingsBalance"] += true_amount
+            log[account]["transactions"].append(f"Deposited ${true_amount} into Savings")
+            print(log[account]["savingsBalance"])
             save_file(log, account)
     go_back = input("Want to head back (y/n): ").lower()
     if go_back == "y":
-        main_menu(log)
+        main_menu(log, account)
     elif go_back == "n":
         exit()
     else:
@@ -109,7 +109,7 @@ def main_menu(log, account):
         if choice == "4":
             view_transaction(log, account)
         if choice == "5":
-            leave = input("Are you sure(y/n)?").lower()
+            leave = input("Are you sure(y/n)?: ").lower()
             if leave == "y":
                 print("Have a nice day.")
                 exit()
@@ -125,7 +125,7 @@ def main_menu(log, account):
     
 def save_file(data, account, filename = "accounts.json"):
     with open(filename,"w") as file:
-        file.write(json.dumps(data, account, indent=4))
+        file.write(json.dumps(data, indent=4))
 
 
 
@@ -152,14 +152,14 @@ def main():
             #print("Your account number does not match.")
         account = None
         for i in range(len(log)):
-            if log[i]==Acc_numb:
+            if log[i]["accountNumber"]==Acc_numb:
                 account=i
         if account == None:
             account = 0
         if Pin_numb != log[account]["pin"]:
             print("Your pin number does not match.")
         elif Pin_numb == log[account]["pin"]:
-            print(f"Welcome {log["firstName"]} {log["lastName"]}")
+            print(f"Welcome {log[account]["firstName"]} {log[account]["lastName"]}")
             main_menu(log, account)
             break
 
